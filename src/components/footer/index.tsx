@@ -52,10 +52,18 @@ const Footer = () => {
             </Mail>
             <Phone aria-label="Phone number">+91 917 648 3426</Phone>
             <SocialMedia>
-              <SocialMediaLink href="" target="_blank" aria-label="Linkedin">
+              <SocialMediaLink
+                href="https://www.linkedin.com/in/dhanunjay-mamidi-9a00b3127/"
+                target="_blank"
+                aria-label="Linkedin"
+              >
                 <FaLinkedin />
               </SocialMediaLink>
-              <SocialMediaLink href="" target="_blank" aria-label="Linkedin">
+              <SocialMediaLink
+                href="https://github.com/dhanumamidi"
+                target="_blank"
+                aria-label="Linkedin"
+              >
                 <FaGithub />
               </SocialMediaLink>
             </SocialMedia>

@@ -57,6 +57,22 @@ export const BookTitle = styled.h1`
   }
 `;
 
+export const BookDetailInfo = styled.div`
+  font-size: 16px;
+  margin-top: -2px;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+export const BookAuthor = styled.div`
+  font-weight: 700;
+`;
+
+export const BookYear = styled.div`
+  margin-left: 10px;
+  font-weight: 500;
+`;
+
 export const BookDescription = styled.p`
   color: white;
 

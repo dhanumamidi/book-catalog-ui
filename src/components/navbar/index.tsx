@@ -1,12 +1,20 @@
 import React from "react";
-import { Nav, NavbarContainer, NavLogo } from "./navbarElements";
+import {
+  Nav,
+  NavbarContainer,
+  NavLogo,
+  NavLogoWrapper,
+} from "./navbarElements";
+import logo from "../../assets/images/nav_logo.gif";
 
 export const Navbar = () => {
   return (
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/"></NavLogo>
+          <NavLogoWrapper to="/">
+            <NavLogo src={logo} />
+          </NavLogoWrapper>
         </NavbarContainer>
       </Nav>
     </>

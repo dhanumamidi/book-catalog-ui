@@ -19,13 +19,6 @@ jobs:
           command: npm run test
 
 workflows:
-  heroku_deploy:
+  build_and_test:
     jobs:
       - build
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          app-name: $HEROKU_APP_NAME
-          requires:
-            - build
-          filters:
-            branches:
-              only: main

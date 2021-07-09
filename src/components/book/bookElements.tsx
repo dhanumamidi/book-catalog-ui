@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const BookCard = styled(Link)<{ imageUrl: any }>`
+export const BookCard = styled(Link)<{ imageurl: any }>`
   position: relative;
   overflow: hidden;
   width: 250px;
@@ -15,7 +15,7 @@ export const BookCard = styled(Link)<{ imageUrl: any }>`
   box-shadow: 10px 10px 10px #111;
   transition: background-color 0.25s linear;
   cursor: pointer;
-  background-image: url(${(props) => props.imageUrl});
+  background-image: url(${(props) => props.imageurl});
   background-size: cover;
   background-blend-mode: color;
   text-decoration: none;

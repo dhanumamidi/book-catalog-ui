@@ -10,7 +10,7 @@ import {
 const Book = ({ book }: { book: IBook }) => {
   return (
     <>
-      <BookCard to={{ pathname: `/book/${book.isbn}` }} imageUrl={book.cover}>
+      <BookCard to={{ pathname: `/book/${book.isbn}` }} imageurl={book.cover}>
         <BookTitle className="title" aria-label="Book Tile">
           {book.title}
         </BookTitle>

@@ -1,20 +1,25 @@
 import { useQuery } from "@apollo/client";
 import React, { useEffect, useState } from "react";
-import { useParams, useLocation } from "react-router-dom";
 import { GET_BOOK_BY_ISBN } from "../../graphql/queries";
 import { IBook } from "../../models/book";
+import { DefaultWrapper } from "../shared/defaultWrapper/DefaultWrapper";
+import ErrorPage from "../shared/Error";
+import { LoadingSpinner } from "../shared/Loader/LoadingSpinner";
 import {
+  BookAuthor,
   BookCover,
   BookDescription,
+  BookDetailInfo,
   BookDetailsContainer,
   BookInfo,
   BookTitle,
+  BookYear,
   ContainerOverlay,
 } from "./detailPageElements";
 
 const Details = (props: any) => {
   const isbn = props.match.params["isbn"];
-  const { data } = useQuery(GET_BOOK_BY_ISBN, {
+  const { loading, error, data } = useQuery(GET_BOOK_BY_ISBN, {
     variables: { isbn: isbn },
   });
   const [book, setBook] = useState<IBook | null>(null);
@@ -24,6 +29,22 @@ const Details = (props: any) => {
     }
   }, [data]);
 
+  if (loading) {
+    return (
+      <>
+        <DefaultWrapper>
+          <LoadingSpinner />
+        </DefaultWrapper>
+      </>
+    );
+  }
+  if (error) {
+    return (
+      <>
+        <ErrorPage />
+      </>
+    );
+  }
   return (
     <>
       {book && (
@@ -31,10 +52,13 @@ const Details = (props: any) => {
           <ContainerOverlay>
             <BookCover src={book.cover} />
             <BookInfo>
-              <BookTitle aria-label="Book title">
-                {book.title}
-                <p>{book.year}</p>
-              </BookTitle>
+              <BookTitle aria-label="Book title">{book.title}</BookTitle>
+              <BookDetailInfo>
+                <BookAuthor aria-label="Book author">{book.author}</BookAuthor>
+                <BookYear aria-label="Book published year">
+                  {book.year}
+                </BookYear>
+              </BookDetailInfo>
               <BookDescription aria-label="Book description">
                 {book.description}
               </BookDescription>
